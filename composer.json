@@ -1,0 +1,29 @@
+{
+  "name" : "activecollab/user",
+  "type": "library",
+  "description": "User interface",
+  "license" : "MIT",
+  "prefer-stable": true,
+  "keywords": [ "activecollab" ],
+  "homepage": "https://labs.activecollab.com",
+  "authors": [
+    {
+      "name": "Ilija Studen",
+      "email": "ilija.studen@activecollab.com"
+    }
+  ],
+  "require" : {
+    "php": ">=5.6.0",
+    "jasonpriem/human-name-parser" : "dev-master"
+  },
+  "require-dev" : {
+    "phpunit/phpunit": "~4.8"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "ActiveCollab\\User\\": "src",
+      "ActiveCollab\\User\\Test\\": "test/src"
+    }
+  }
+}
