@@ -2,7 +2,7 @@
 
 namespace ActiveCollab\User;
 
-use ActiveCollab\User\UserInterface\Implementation as UserInterfaceImplementation;
+use ActiveCollab\User\UserInterface\ImplementationUsingFullName as UserInterfaceImplementation;
 use InvalidArgumentException;
 
 /**

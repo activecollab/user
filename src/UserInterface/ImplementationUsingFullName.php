@@ -8,7 +8,7 @@ use HumanNameParser_Parser as HumanNameParser;
 /**
  * @package ActiveCollab\User\UserInterface
  */
-trait Implementation
+trait ImplementationUsingFullName
 {
     /**
      * Return display name of this user
