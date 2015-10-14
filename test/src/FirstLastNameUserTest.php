@@ -3,6 +3,7 @@
 namespace ActiveCollab\User\Test;
 
 use ActiveCollab\User\Test\Fixtures\FirstLastNameUser;
+use ActiveCollab\User\UserInterface;
 
 /**
  * @package ActiveCollab\User\Test
@@ -81,12 +82,14 @@ class FirstLastNameUserTest extends TestCase
     {
         $bill = new FirstLastNameUser('', '', 'bill.gates@microsoft.com');
 
-        $this->assertEquals('Bill', $bill->getFirstName());
-        $this->assertEquals('Gates', $bill->getLastName());
+        $this->assertEquals('', $bill->getFirstName());
+        $this->assertEquals('', $bill->getLastName());
+        $this->assertEquals('Bill Gates', $bill->formatName(UserInterface::NAME_FULL));
 
         $steve = new FirstLastNameUser('', '', 'steve@apple.com');
 
-        $this->assertEquals('Steve', $steve->getFirstName());
+        $this->assertEquals('', $steve->getFirstName());
         $this->assertEquals('', $steve->getLastName());
+        $this->assertEquals('Steve', $steve->formatName(UserInterface::NAME_FULL));
     }
 }

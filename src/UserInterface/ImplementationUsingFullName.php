@@ -49,18 +49,12 @@ trait ImplementationUsingFullName
             $full_name = $this->getFullName();
 
             if (empty($full_name)) {
-                $exploded_full_name = explode(' ', str_replace(['.', '-', '_'], [' ', ' ', ' '], substr($this->getEmail(), 0, strpos($this->getEmail(), '@'))));
+                list ($first_name, $last_name) = $this->getFirstAndLastNameFromEmail();
 
-                if (count($exploded_full_name) === 1) {
-                    $this->full_name_bits = ['first' => mb_strtoupper(mb_substr($exploded_full_name[0], 0, 1)) . mb_substr($exploded_full_name[0], 1)];
+                if ($first_name && $last_name) {
+                    $this->full_name_bits = (new HumanNameParser("$first_name $last_name"))->getArray();
                 } else {
-                    $full_name = [];
-
-                    foreach ($exploded_full_name as $k) {
-                        $full_name[] = mb_strtoupper(mb_substr($k, 0, 1)) . mb_substr($k, 1);
-                    }
-
-                    $this->full_name_bits = (new HumanNameParser(implode(' ', $full_name)))->getArray();
+                    $this->full_name_bits = ['first' => $first_name];
                 }
             } else {
                 $this->full_name_bits = (new HumanNameParser($full_name))->getArray();
@@ -76,11 +70,4 @@ trait ImplementationUsingFullName
      * @return string
      */
     abstract public function getFullName();
-
-    /**
-     * Return email address of a given user
-     *
-     * @return string
-     */
-    abstract public function getEmail();
 }

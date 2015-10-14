@@ -20,11 +20,4 @@ trait ImplementationUsingFirstAndLastName
     {
         return trim($this->getFirstName() . ' ' . $this->getLastName());
     }
-
-    /**
-     * Return email address of a given user
-     *
-     * @return string
-     */
-    abstract public function getEmail();
 }
