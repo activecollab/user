@@ -2,10 +2,12 @@
 
 namespace ActiveCollab\User;
 
+use JsonSerializable;
+
 /**
  * @package ActiveCollab\User
  */
-interface UserInterface
+interface UserInterface extends JsonSerializable
 {
     const NAME_FULL = 'full';
     const NAME_SHORT_LAST_NAME = 'short_last_name';

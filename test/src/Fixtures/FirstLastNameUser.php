@@ -88,4 +88,21 @@ class FirstLastNameUser implements UserInterface
     {
         return $this->last_name;
     }
+
+    /**
+     * Serialize user instance
+     *
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'class' => get_class($this),
+            'first_name' => $this->getFirstName(),
+            'last_name' => $this->getLastName(),
+            'full_name' => $this->getFullName(),
+            'email' => $this->getEmail(),
+        ];
+    }
 }

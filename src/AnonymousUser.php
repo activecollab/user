@@ -70,4 +70,21 @@ class AnonymousUser implements UserInterface
     {
         return $this->full_name;
     }
+
+    /**
+     * Serialize user instance
+     *
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'class' => get_class($this),
+            'first_name' => $this->getFirstName(),
+            'last_name' => $this->getLastName(),
+            'full_name' => $this->getFullName(),
+            'email' => $this->getEmail(),
+        ];
+    }
 }

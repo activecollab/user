@@ -89,4 +89,22 @@ class AnonymousUserTest extends TestCase
         $this->assertEquals('Steve', $steve->getFirstName());
         $this->assertEquals('', $steve->getLastName());
     }
+
+    /**
+     * Test JSON serialize
+     */
+    public function testJsonSerialize()
+    {
+        $bill = new AnonymousUser('William Henry "Bill" Gates III', 'bill@microsoft.com');
+
+        $result = json_decode(json_encode($bill), true);
+
+        $this->assertInternalType('array', $result);
+        $this->assertEquals(0, $result['id']);
+        $this->assertEquals(AnonymousUser::class, $result['class']);
+        $this->assertEquals('William', $result['first_name']);
+        $this->assertEquals('Gates', $result['last_name']);
+        $this->assertEquals('William Henry "Bill" Gates III', $result['full_name']);
+        $this->assertEquals('bill@microsoft.com', $result['email']);
+    }
 }
