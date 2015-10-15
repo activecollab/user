@@ -12,3 +12,14 @@ strategy that you select for implementation.
 
 Only solid class that this library offers is `ActiveCollab\User\AnonymousUser` which describe a single user who
 announces their identity by providing their email address and optionally full name.
+
+```php
+$user = new ActiveCollab\User\AnonymousUser('Ilija Studen', 'ilija@example.com');
+```
+
+All instances that implement `ActiveCollab\User\UserInterface` can be serialized to JSON:
+
+```php
+$user = new ActiveCollab\User\AnonymousUser('Ilija Studen', 'ilija@example.com');
+print_r(json_decode(json_encode($user), true));
+```
