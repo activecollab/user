@@ -1,5 +1,7 @@
 # User
 
+[![Build Status](https://travis-ci.org/activecollab/user.svg?branch=master)](https://travis-ci.org/activecollab/user)
+
 User interface describes a single user:
 
 1. ID (if available),
