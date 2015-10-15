@@ -27,3 +27,16 @@ All instances that implement `ActiveCollab\User\UserInterface` can be serialized
 $user = new ActiveCollab\User\AnonymousUser('Ilija Studen', 'ilija@example.com');
 print_r(json_decode(json_encode($user), true));
 ```
+
+will output:
+
+```
+(
+    [id] => 0
+    [class] => ActiveCollab\User\AnonymousUser
+    [first_name] => Ilija
+    [last_name] => Studen
+    [full_name] => Ilija Studen
+    [email] => ilija@example.com
+)
+```
