@@ -15,6 +15,10 @@ announces their identity by providing their email address and optionally full na
 
 ```php
 $user = new ActiveCollab\User\AnonymousUser('Ilija Studen', 'ilija@example.com');
+
+print $user->getFirstName() . "\n";
+print $user->getLastName() . "\n";
+print $user->formatName(ActiveCollab\User\UserInterface::NAME_INITIALS) . "\n";
 ```
 
 All instances that implement `ActiveCollab\User\UserInterface` can be serialized to JSON:
