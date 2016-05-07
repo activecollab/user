@@ -8,7 +8,7 @@
 
 namespace ActiveCollab\User\UserInterface;
 
-use HumanNameParser_Parser as HumanNameParser;
+use ActiveCollab\HumanNameParser\Parser as HumanNameParser;
 
 /**
  * @package ActiveCollab\User\UserInterface
