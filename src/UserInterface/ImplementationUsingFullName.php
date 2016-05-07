@@ -1,8 +1,13 @@
 <?php
 
+/*
+ * This file is part of the Active Collab User project.
+ *
+ * (c) A51 doo <info@activecollab.com>. All rights reserved.
+ */
+
 namespace ActiveCollab\User\UserInterface;
 
-use ActiveCollab\User\UserInterface;
 use HumanNameParser_Parser as HumanNameParser;
 
 /**
@@ -13,7 +18,12 @@ trait ImplementationUsingFullName
     use FormatNameImplementation;
 
     /**
-     * Return first name of this user
+     * @var array|null
+     */
+    private $full_name_bits;
+
+    /**
+     * Return first name of this user.
      *
      * @return string
      */
@@ -23,22 +33,7 @@ trait ImplementationUsingFullName
     }
 
     /**
-     * Return first name of this user
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->getFullNameBit('last');
-    }
-
-    /**
-     * @var array|null
-     */
-    private $full_name_bits;
-
-    /**
-     * Return first name bit
+     * Return first name bit.
      *
      * @param  string $bit
      * @return string
@@ -49,7 +44,7 @@ trait ImplementationUsingFullName
             $full_name = $this->getFullName();
 
             if (empty($full_name)) {
-                list ($first_name, $last_name) = $this->getFirstAndLastNameFromEmail();
+                list($first_name, $last_name) = $this->getFirstAndLastNameFromEmail();
 
                 if ($first_name && $last_name) {
                     $this->full_name_bits = (new HumanNameParser("$first_name $last_name"))->getArray();
@@ -65,7 +60,17 @@ trait ImplementationUsingFullName
     }
 
     /**
-     * Return full name of this user
+     * Return first name of this user.
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->getFullNameBit('last');
+    }
+
+    /**
+     * Return full name of this user.
      *
      * @return string
      */

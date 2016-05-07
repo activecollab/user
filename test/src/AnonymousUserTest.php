@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Active Collab User project.
+ *
+ * (c) A51 doo <info@activecollab.com>. All rights reserved.
+ */
+
 namespace ActiveCollab\User\Test;
 
 use ActiveCollab\User\AnonymousUser;
@@ -10,7 +16,7 @@ use ActiveCollab\User\AnonymousUser;
 class AnonymousUserTest extends TestCase
 {
     /**
-     * Test if full name is optional
+     * Test if full name is optional.
      */
     public function testFullNameIsOptional()
     {
@@ -26,7 +32,7 @@ class AnonymousUserTest extends TestCase
     }
 
     /**
-     * Test if we can provide an invalid email by default
+     * Test if we can provide an invalid email by default.
      */
     public function testEmailIsNotValidatedByDefault()
     {
@@ -42,7 +48,7 @@ class AnonymousUserTest extends TestCase
     }
 
     /**
-     * Test Edwin van der Sar
+     * Test Edwin van der Sar.
      */
     public function testEdwinVanDerSar()
     {
@@ -53,7 +59,7 @@ class AnonymousUserTest extends TestCase
     }
 
     /**
-     * Test Charles de Batz-Castelmore d'Artagnan
+     * Test Charles de Batz-Castelmore d'Artagnan.
      */
     public function testCharlesDeBatzCCastelmoreDArtagnan()
     {
@@ -64,7 +70,7 @@ class AnonymousUserTest extends TestCase
     }
 
     /**
-     * Test Bill Gates
+     * Test Bill Gates.
      */
     public function testBillGates()
     {
@@ -75,7 +81,7 @@ class AnonymousUserTest extends TestCase
     }
 
     /**
-     * Test if first name is extracted from personal bit of email address, when available
+     * Test if first name is extracted from personal bit of email address, when available.
      */
     public function testPersonalBitOfEmailIsUsedWhenFullNameIsNotProvided()
     {
@@ -91,7 +97,7 @@ class AnonymousUserTest extends TestCase
     }
 
     /**
-     * Test JSON serialize
+     * Test JSON serialize.
      */
     public function testJsonSerialize()
     {

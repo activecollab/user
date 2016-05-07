@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Active Collab User project.
+ *
+ * (c) A51 doo <info@activecollab.com>. All rights reserved.
+ */
+
 namespace ActiveCollab\User\Test\Fixtures;
 
 use ActiveCollab\User\UserInterface;
@@ -50,9 +56,9 @@ class FirstLastNameUser implements UserInterface
     }
 
     /**
-     * Return user ID
+     * Return user ID.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -60,7 +66,7 @@ class FirstLastNameUser implements UserInterface
     }
 
     /**
-     * Return email address of a given user
+     * Return email address of a given user.
      *
      * @return string
      */
@@ -70,7 +76,7 @@ class FirstLastNameUser implements UserInterface
     }
 
     /**
-     * Return first name of this user
+     * Return first name of this user.
      *
      * @return string
      */
@@ -80,7 +86,7 @@ class FirstLastNameUser implements UserInterface
     }
 
     /**
-     * Return first name of this user
+     * Return first name of this user.
      *
      * @return string
      */
@@ -90,7 +96,7 @@ class FirstLastNameUser implements UserInterface
     }
 
     /**
-     * Serialize user instance
+     * Serialize user instance.
      *
      * @return array
      */

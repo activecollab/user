@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Active Collab User project.
+ *
+ * (c) A51 doo <info@activecollab.com>. All rights reserved.
+ */
+
 namespace ActiveCollab\User\Test;
 
 use ActiveCollab\User\AnonymousUser;
@@ -16,13 +22,11 @@ class NameFormatTest extends TestCase
     private $bill;
 
     /**
-     * Set up test environment
+     * Set up test environment.
      */
     public function setUp()
     {
         parent::setUp();
-
-
     }
 
     public function testNameFormat()

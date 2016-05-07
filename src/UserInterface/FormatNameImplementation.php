@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Active Collab User project.
+ *
+ * (c) A51 doo <info@activecollab.com>. All rights reserved.
+ */
+
 namespace ActiveCollab\User\UserInterface;
 
 use ActiveCollab\User\UserInterface;
@@ -10,7 +16,7 @@ use ActiveCollab\User\UserInterface;
 trait FormatNameImplementation
 {
     /**
-     * Return display name of this user
+     * Return display name of this user.
      *
      * @param  string $format
      * @return string
@@ -21,7 +27,7 @@ trait FormatNameImplementation
         $last_name = $this->getLastName();
 
         if (empty($first_name) && empty($last_name)) {
-            list ($first_name, $last_name) = $this->getFirstAndLastNameFromEmail();
+            list($first_name, $last_name) = $this->getFirstAndLastNameFromEmail();
         }
 
         if ($format == UserInterface::NAME_FULL) {
@@ -38,7 +44,7 @@ trait FormatNameImplementation
     }
 
     /**
-     * Try to get first and last name from email address
+     * Try to get first and last name from email address.
      *
      * @return array
      */
@@ -64,23 +70,23 @@ trait FormatNameImplementation
     }
 
     /**
-     * Return first name of this user
+     * Return email address of a given user.
+     *
+     * @return string
+     */
+    abstract public function getEmail();
+
+    /**
+     * Return first name of this user.
      *
      * @return string
      */
     abstract public function getFirstName();
 
     /**
-     * Return first name of this user
+     * Return first name of this user.
      *
      * @return string
      */
     abstract public function getLastName();
-
-    /**
-     * Return email address of a given user
-     *
-     * @return string
-     */
-    abstract public function getEmail();
 }

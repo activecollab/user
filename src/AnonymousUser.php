@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Active Collab User project.
+ *
+ * (c) A51 doo <info@activecollab.com>. All rights reserved.
+ */
+
 namespace ActiveCollab\User;
 
 use ActiveCollab\User\UserInterface\ImplementationUsingFullName as UserInterfaceImplementation;
@@ -42,37 +48,7 @@ class AnonymousUser implements UserInterface
     }
 
     /**
-     * Return user ID
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return 0;
-    }
-
-    /**
-     * Return email address of a given user
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Return full name of this user
-     *
-     * @return string
-     */
-    public function getFullName()
-    {
-        return $this->full_name;
-    }
-
-    /**
-     * Serialize user instance
+     * Serialize user instance.
      *
      * @return array
      */
@@ -86,5 +62,35 @@ class AnonymousUser implements UserInterface
             'full_name' => $this->getFullName(),
             'email' => $this->getEmail(),
         ];
+    }
+
+    /**
+     * Return user ID.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return 0;
+    }
+
+    /**
+     * Return full name of this user.
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->full_name;
+    }
+
+    /**
+     * Return email address of a given user.
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }

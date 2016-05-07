@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * This file is part of the Active Collab User project.
+ *
+ * (c) A51 doo <info@activecollab.com>. All rights reserved.
+ */
+
 namespace ActiveCollab\User;
 
 use JsonSerializable;
@@ -15,42 +21,42 @@ interface UserInterface extends JsonSerializable
     const NAME_INITIALS = 'initials';
 
     /**
-     * Return user ID
+     * Return user ID.
      *
-     * @return integer
+     * @return int
      */
     public function getId();
 
     /**
-     * Return email address of a given user
+     * Return email address of a given user.
      *
      * @return string
      */
     public function getEmail();
 
     /**
-     * Return full name of this user
+     * Return full name of this user.
      *
      * @return string
      */
     public function getFullName();
 
     /**
-     * Return first name of this user
+     * Return first name of this user.
      *
      * @return string
      */
     public function getFirstName();
 
     /**
-     * Return first name of this user
+     * Return first name of this user.
      *
      * @return string
      */
     public function getLastName();
 
     /**
-     * Return display name of this user
+     * Return display name of this user.
      *
      * @param string $format
      */
