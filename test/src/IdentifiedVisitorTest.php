@@ -8,19 +8,19 @@
 
 namespace ActiveCollab\User\Test;
 
-use ActiveCollab\User\AnonymousUser;
+use ActiveCollab\User\IdentifiedVisitor;
 
 /**
  * @package ActiveCollab\User\Test
  */
-class AnonymousUserTest extends TestCase
+class IdentifiedVisitorTest extends TestCase
 {
     /**
      * Test if full name is optional.
      */
     public function testFullNameIsOptional()
     {
-        new AnonymousUser('', 'bill@microsoft.com');
+        new IdentifiedVisitor('', 'bill@microsoft.com');
     }
 
     /**
@@ -28,7 +28,7 @@ class AnonymousUserTest extends TestCase
      */
     public function testEmailIsRequired()
     {
-        new AnonymousUser('William Henry "Bill" Gates III', '');
+        new IdentifiedVisitor('William Henry "Bill" Gates III', '');
     }
 
     /**
@@ -36,7 +36,7 @@ class AnonymousUserTest extends TestCase
      */
     public function testEmailIsNotValidatedByDefault()
     {
-        new AnonymousUser('Edwin van der Sar', 'not valid email address');
+        new IdentifiedVisitor('Edwin van der Sar', 'not valid email address');
     }
 
     /**
@@ -44,7 +44,7 @@ class AnonymousUserTest extends TestCase
      */
     public function testEmailCanBeValidated()
     {
-        new AnonymousUser('Edwin van der Sar', 'not valid email address', true);
+        new IdentifiedVisitor('Edwin van der Sar', 'not valid email address', true);
     }
 
     /**
@@ -52,7 +52,7 @@ class AnonymousUserTest extends TestCase
      */
     public function testEdwinVanDerSar()
     {
-        $edwin = new AnonymousUser('Edwin van der Sar', 'edwin@example.com');
+        $edwin = new IdentifiedVisitor('Edwin van der Sar', 'edwin@example.com');
 
         $this->assertEquals('Edwin', $edwin->getFirstName());
         $this->assertEquals('van der Sar', $edwin->getLastName());
@@ -63,7 +63,7 @@ class AnonymousUserTest extends TestCase
      */
     public function testCharlesDeBatzCCastelmoreDArtagnan()
     {
-        $charles = new AnonymousUser("Charles de Batz-Castelmore d'Artagnan", 'charles@example.com');
+        $charles = new IdentifiedVisitor("Charles de Batz-Castelmore d'Artagnan", 'charles@example.com');
 
         $this->assertEquals('Charles', $charles->getFirstName());
         $this->assertEquals("d'Artagnan", $charles->getLastName());
@@ -74,7 +74,7 @@ class AnonymousUserTest extends TestCase
      */
     public function testBillGates()
     {
-        $bill = new AnonymousUser('William Henry "Bill" Gates III', 'bill@microsoft.com');
+        $bill = new IdentifiedVisitor('William Henry "Bill" Gates III', 'bill@microsoft.com');
 
         $this->assertEquals('William', $bill->getFirstName());
         $this->assertEquals('Gates', $bill->getLastName());
@@ -85,12 +85,12 @@ class AnonymousUserTest extends TestCase
      */
     public function testPersonalBitOfEmailIsUsedWhenFullNameIsNotProvided()
     {
-        $bill = new AnonymousUser('', 'bill.gates@microsoft.com');
+        $bill = new IdentifiedVisitor('', 'bill.gates@microsoft.com');
 
         $this->assertEquals('Bill', $bill->getFirstName());
         $this->assertEquals('Gates', $bill->getLastName());
 
-        $steve = new AnonymousUser('', 'steve@apple.com');
+        $steve = new IdentifiedVisitor('', 'steve@apple.com');
 
         $this->assertEquals('Steve', $steve->getFirstName());
         $this->assertEquals('', $steve->getLastName());
@@ -101,13 +101,13 @@ class AnonymousUserTest extends TestCase
      */
     public function testJsonSerialize()
     {
-        $bill = new AnonymousUser('William Henry "Bill" Gates III', 'bill@microsoft.com');
+        $bill = new IdentifiedVisitor('William Henry "Bill" Gates III', 'bill@microsoft.com');
 
         $result = json_decode(json_encode($bill), true);
 
         $this->assertInternalType('array', $result);
         $this->assertEquals(0, $result['id']);
-        $this->assertEquals(AnonymousUser::class, $result['class']);
+        $this->assertEquals(IdentifiedVisitor::class, $result['class']);
         $this->assertEquals('William', $result['first_name']);
         $this->assertEquals('Gates', $result['last_name']);
         $this->assertEquals('William Henry "Bill" Gates III', $result['full_name']);

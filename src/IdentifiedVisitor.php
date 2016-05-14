@@ -14,7 +14,7 @@ use InvalidArgumentException;
 /**
  * @package ActiveCollab\User
  */
-class AnonymousUser implements UserInterface
+class IdentifiedVisitor implements UserInterface
 {
     use UserInterfaceImplementation;
 
@@ -48,9 +48,7 @@ class AnonymousUser implements UserInterface
     }
 
     /**
-     * Serialize user instance.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public function jsonSerialize()
     {
@@ -65,9 +63,7 @@ class AnonymousUser implements UserInterface
     }
 
     /**
-     * Return user ID.
-     *
-     * @return int
+     * {@inheritdoc}
      */
     public function getId()
     {
@@ -75,9 +71,7 @@ class AnonymousUser implements UserInterface
     }
 
     /**
-     * Return full name of this user.
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getFullName()
     {
@@ -85,9 +79,7 @@ class AnonymousUser implements UserInterface
     }
 
     /**
-     * Return email address of a given user.
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getEmail()
     {

@@ -8,7 +8,7 @@
 
 namespace ActiveCollab\User\Test;
 
-use ActiveCollab\User\AnonymousUser;
+use ActiveCollab\User\IdentifiedVisitor;
 use ActiveCollab\User\UserInterface;
 
 /**
@@ -16,22 +16,9 @@ use ActiveCollab\User\UserInterface;
  */
 class NameFormatTest extends TestCase
 {
-    /**
-     * @var AnonymousUser
-     */
-    private $bill;
-
-    /**
-     * Set up test environment.
-     */
-    public function setUp()
-    {
-        parent::setUp();
-    }
-
     public function testNameFormat()
     {
-        $bill = new AnonymousUser('William Henry "Bill" Gates III', 'bill@microsoft.com');
+        $bill = new IdentifiedVisitor('William Henry "Bill" Gates III', 'bill@microsoft.com');
 
         $this->assertEquals('William Gates', $bill->formatName());
         $this->assertEquals('William G.', $bill->formatName(UserInterface::NAME_SHORT_LAST_NAME));
@@ -41,7 +28,7 @@ class NameFormatTest extends TestCase
 
     public function testNameFormWhenLastNameIsMissing()
     {
-        $bill = new AnonymousUser('', 'bill@microsoft.com');
+        $bill = new IdentifiedVisitor('', 'bill@microsoft.com');
 
         $this->assertEquals('Bill', $bill->formatName());
         $this->assertEquals('Bill', $bill->formatName(UserInterface::NAME_SHORT_LAST_NAME));
