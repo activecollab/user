@@ -12,8 +12,7 @@ User interface describes a single user:
 First and last name can be parsed from full name, or full name can be assembled from first and last name, depending on
 strategy that you select for implementation.
 
-Only solid class that this library offers is `ActiveCollab\User\IdentifiedVisitor` which describe a single user who
-announces their identity by providing their email address and optionally full name.
+This library offers two solid classes: `ActiveCollab\User\UnidentifiedVisitor` is a visitor that we know nothing about, and `ActiveCollab\User\IdentifiedVisitor` which describe a single user who announces their identity by providing their email address and optionally full name.
 
 ```php
 $user = new ActiveCollab\User\IdentifiedVisitor('Ilija Studen', 'ilija@example.com');
@@ -22,6 +21,12 @@ print $user->getFirstName() . "\n";
 print $user->getLastName() . "\n";
 print $user->formatName(ActiveCollab\User\UserInterface::NAME_INITIALS) . "\n";
 ```
+
+If the app has a concept of users with accounts, these classes should implement `ActiveCollab\User\UserInterface` and provide access to required properties: 
+
+1. User ID, 
+2. User's email address,
+3. User's first and last name or full name.
 
 All instances that implement `ActiveCollab\User\UserInterface` can be serialized to JSON:
 
