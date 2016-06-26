@@ -61,4 +61,12 @@ interface UserInterface extends JsonSerializable
      * @param string $format
      */
     public function formatName($format = self::NAME_FULL);
+
+    /**
+     * Return true if $user is the same person as this user.
+     *
+     * @param  UserInterface $user
+     * @return bool
+     */
+    public function is(UserInterface $user);
 }

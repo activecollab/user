@@ -55,4 +55,15 @@ class UnidentifiedVisitor implements UserInterface
     {
         return 'unknown@example.com';
     }
+
+    /**
+     * Unidentified users can't be identified, and therefore can't be compared.
+     *
+     * @param  UserInterface $user
+     * @return bool
+     */
+    public function is(UserInterface $user)
+    {
+        return false;
+    }
 }

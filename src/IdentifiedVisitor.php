@@ -85,4 +85,12 @@ class IdentifiedVisitor implements UserInterface
     {
         return $this->email;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function is(UserInterface $user)
+    {
+        return empty($user->getId()) && $this->getEmail() === $user->getEmail();
+    }
 }

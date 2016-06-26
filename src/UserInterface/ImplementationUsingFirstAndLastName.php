@@ -13,7 +13,7 @@ namespace ActiveCollab\User\UserInterface;
  */
 trait ImplementationUsingFirstAndLastName
 {
-    use FormatNameImplementation;
+    use FormatNameImplementation, UserIsImplementation;
 
     /**
      * Return full name of this user.

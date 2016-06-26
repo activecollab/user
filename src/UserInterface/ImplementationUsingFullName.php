@@ -15,7 +15,7 @@ use ActiveCollab\HumanNameParser\Parser as HumanNameParser;
  */
 trait ImplementationUsingFullName
 {
-    use FormatNameImplementation;
+    use FormatNameImplementation, UserIsImplementation;
 
     /**
      * @var array|null
