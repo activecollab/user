@@ -42,3 +42,18 @@ will output:
     [email] => ilija@example.com
 )
 ```
+
+## Comparing Users
+
+`UserInterface::is()` method is handy when you need to check if a particular user instance is the same person as another instance:
+
+```php
+$user1 = new ActiveCollab\User\AnonymousUser('John Doe', 'john@example.com');
+$user2 = new ActiveCollab\User\AnonymousUser('Jane Doe', 'jane@example.com');
+
+if ($user1->is($user2)) {
+    print "Same person\n";
+} else {
+    print "Not the same person\n";
+}
+```
