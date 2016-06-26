@@ -57,3 +57,5 @@ if ($user1->is($user2)) {
     print "Not the same person\n";
 }
 ```
+
+Users with accounts (ID > 0) are compared by their ID, and visitors without an account are compared by their email address. Comparisons are not mixed, so user with account will never be identified as visitor, even when their email addresses match. 
