@@ -22,11 +22,20 @@ print $user->getLastName() . "\n";
 print $user->formatName(ActiveCollab\User\UserInterface::NAME_INITIALS) . "\n";
 ```
 
+## Users with Accounts
+
 If the app has a concept of users with accounts, these classes should implement `ActiveCollab\User\UserInterface` and provide access to required properties: 
 
 1. User ID, 
 2. User's email address,
 3. User's first and last name or full name.
+
+Depending on what you have stored for #3, you can use one of the two traits to get most of the UserInterface implementation pasted to your user classes:
+
+1. `ActiveCollab\User\UserInterface\ImplementationUsingFirstAndLastName`
+2. `ActiveCollab\User\UserInterface\ImplementationUsingFullName`
+
+## Serialization
 
 All instances that implement `ActiveCollab\User\UserInterface` can be serialized to JSON:
 
