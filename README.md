@@ -12,6 +12,8 @@ User interface describes a single user:
 First and last name can be parsed from full name, or full name can be assembled from first and last name, depending on
 strategy that you select for implementation.
 
+## Identified and Unidentified Visitors
+
 This library offers two solid classes: `ActiveCollab\User\UnidentifiedVisitor` is a visitor that we know nothing about, and `ActiveCollab\User\IdentifiedVisitor` which describe a single user who announces their identity by providing their email address and optionally full name.
 
 ```php
