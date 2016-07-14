@@ -57,12 +57,9 @@ class UnidentifiedVisitor implements UserInterface
     }
 
     /**
-     * Unidentified users can't be identified, and therefore can't be compared.
-     *
-     * @param  UserInterface $user
-     * @return bool
+     * {@inheritdoc}
      */
-    public function is(UserInterface $user)
+    public function is($object)
     {
         return false;
     }

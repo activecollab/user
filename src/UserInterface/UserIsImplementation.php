@@ -18,9 +18,13 @@ trait UserIsImplementation
     /**
      * {@inheritdoc}
      */
-    public function is(UserInterface $user)
+    public function is($object)
     {
-        return $this->getId() && $this->getId() === $user->getId();
+        if ($object instanceof UserInterface) {
+            return $this->getId() && $this->getId() === $object->getId();
+        }
+
+        return false;
     }
 
     /**

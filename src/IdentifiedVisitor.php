@@ -89,8 +89,12 @@ class IdentifiedVisitor implements UserInterface
     /**
      * {@inheritdoc}
      */
-    public function is(UserInterface $user)
+    public function is($object)
     {
-        return empty($user->getId()) && $this->getEmail() === $user->getEmail();
+        if ($object instanceof UserInterface) {
+            return empty($object->getId()) && $this->getEmail() === $object->getEmail();
+        }
+
+        return false;
     }
 }

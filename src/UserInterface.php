@@ -8,24 +8,18 @@
 
 namespace ActiveCollab\User;
 
+use ActiveCollab\Object\ObjectInterface;
 use JsonSerializable;
 
 /**
  * @package ActiveCollab\User
  */
-interface UserInterface extends JsonSerializable
+interface UserInterface extends ObjectInterface, JsonSerializable
 {
     const NAME_FULL = 'full';
     const NAME_SHORT_LAST_NAME = 'short_last_name';
     const NAME_SHORT_FIRST_NAME = 'short_first_name';
     const NAME_INITIALS = 'initials';
-
-    /**
-     * Return user ID.
-     *
-     * @return int
-     */
-    public function getId();
 
     /**
      * Return email address of a given user.
@@ -61,12 +55,4 @@ interface UserInterface extends JsonSerializable
      * @param string $format
      */
     public function formatName($format = self::NAME_FULL);
-
-    /**
-     * Return true if $user is the same person as this user.
-     *
-     * @param  UserInterface $user
-     * @return bool
-     */
-    public function is(UserInterface $user);
 }
