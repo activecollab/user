@@ -11,7 +11,6 @@ namespace ActiveCollab\User\Test;
 use ActiveCollab\User\IdentifiedVisitor;
 use ActiveCollab\User\Test\Fixtures\UserWithAccount;
 use ActiveCollab\User\UnidentifiedVisitor;
-use ActiveCollab\User\UserInterface;
 
 /**
  * @package ActiveCollab\User\Test

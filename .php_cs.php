@@ -36,7 +36,7 @@ return (new Symfony\CS\Config\Config('psr2'))->fixers([
     'standardize_not_equal',
     'ternary_spaces',
     'trim_array_spaces',
-    'unused_use ',
+    'unused_use',
     'whitespacy_lines',
     'ordered_use',
     'short_array_syntax',
