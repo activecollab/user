@@ -26,33 +26,33 @@ interface UserInterface extends ObjectInterface, JsonSerializable
      *
      * @return string
      */
-    public function getEmail();
+    public function getEmail(): string;
 
     /**
      * Return full name of this user.
      *
-     * @return string
+     * @return string|null
      */
-    public function getFullName();
+    public function getFullName(): ?string;
 
     /**
      * Return first name of this user.
      *
-     * @return string
+     * @return string|null
      */
-    public function getFirstName();
+    public function getFirstName(): ?string;
 
     /**
      * Return first name of this user.
      *
-     * @return string
+     * @return string|null
      */
-    public function getLastName();
+    public function getLastName(): ?string;
 
     /**
      * Return display name of this user.
      *
      * @param string $format
      */
-    public function formatName($format = self::NAME_FULL);
+    public function formatName(string $format = self::NAME_FULL);
 }

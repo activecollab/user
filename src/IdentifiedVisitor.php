@@ -73,7 +73,7 @@ class IdentifiedVisitor implements UserInterface
     /**
      * {@inheritdoc}
      */
-    public function getFullName()
+    public function getFullName(): ?string
     {
         return $this->full_name;
     }
@@ -81,7 +81,7 @@ class IdentifiedVisitor implements UserInterface
     /**
      * {@inheritdoc}
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }

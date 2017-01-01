@@ -23,11 +23,9 @@ trait ImplementationUsingFullName
     private $full_name_bits;
 
     /**
-     * Return first name of this user.
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    public function getFirstName()
+    public function getFirstName(): ?string
     {
         return $this->getFullNameBit('first');
     }
@@ -60,19 +58,15 @@ trait ImplementationUsingFullName
     }
 
     /**
-     * Return first name of this user.
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    public function getLastName()
+    public function getLastName(): ?string
     {
         return $this->getFullNameBit('last');
     }
 
     /**
-     * Return full name of this user.
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    abstract public function getFullName();
+    abstract public function getFullName(): ?string;
 }

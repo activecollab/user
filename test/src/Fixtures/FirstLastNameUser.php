@@ -66,31 +66,25 @@ class FirstLastNameUser implements UserInterface
     }
 
     /**
-     * Return email address of a given user.
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
     /**
-     * Return first name of this user.
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    public function getFirstName()
+    public function getFirstName(): ?string
     {
         return $this->first_name;
     }
 
     /**
-     * Return first name of this user.
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    public function getLastName()
+    public function getLastName(): ?string
     {
         return $this->last_name;
     }

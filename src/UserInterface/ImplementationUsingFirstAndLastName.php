@@ -18,9 +18,9 @@ trait ImplementationUsingFirstAndLastName
     /**
      * Return full name of this user.
      *
-     * @return string
+     * @return string|null
      */
-    public function getFullName()
+    public function getFullName(): ?string
     {
         return trim($this->getFirstName() . ' ' . $this->getLastName());
     }

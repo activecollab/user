@@ -96,6 +96,14 @@ class IdentifiedVisitorTest extends TestCase
         $this->assertEquals('', $steve->getLastName());
     }
 
+    public function testIs()
+    {
+        $bill = new IdentifiedVisitor('William Henry "Bill" Gates III', 'bill@microsoft.com');
+
+        $this->assertTrue($bill->is($bill));
+        $this->assertFalse($bill->is(new \stdClass()));
+    }
+
     /**
      * Test JSON serialize.
      */
