@@ -8,6 +8,7 @@
 
 namespace ActiveCollab\User\Test\Fixtures;
 
+use ActiveCollab\User\OrganizationInterface;
 use ActiveCollab\User\UserInterface;
 use ActiveCollab\User\UserInterface\ImplementationUsingFullName as UserInterfaceImplementation;
 use InvalidArgumentException;
@@ -83,6 +84,11 @@ class UserWithAccount implements UserInterface
     public function getFullName(): ?string
     {
         return $this->full_name;
+    }
+
+    public function getOrganization(): ?OrganizationInterface
+    {
+        return null;
     }
 
     /**

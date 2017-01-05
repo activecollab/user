@@ -6,6 +6,8 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\User\UserInterface;
 
 /**
@@ -13,13 +15,8 @@ namespace ActiveCollab\User\UserInterface;
  */
 trait ImplementationUsingFirstAndLastName
 {
-    use FormatNameImplementation, UserIsImplementation;
+    use FormatNameImplementation, JsonSerializeImplementation, OrganizationImplementation, UserIsImplementation;
 
-    /**
-     * Return full name of this user.
-     *
-     * @return string|null
-     */
     public function getFullName(): ?string
     {
         return trim($this->getFirstName() . ' ' . $this->getLastName());

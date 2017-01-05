@@ -6,36 +6,23 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\User\UserInterface;
 
 use ActiveCollab\HumanNameParser\Parser as HumanNameParser;
 
-/**
- * @package ActiveCollab\User\UserInterface
- */
 trait ImplementationUsingFullName
 {
-    use FormatNameImplementation, UserIsImplementation;
+    use FormatNameImplementation, JsonSerializeImplementation, OrganizationImplementation, UserIsImplementation;
 
-    /**
-     * @var array|null
-     */
     private $full_name_bits;
 
-    /**
-     * {@inheritdoc}
-     */
     public function getFirstName(): ?string
     {
         return $this->getFullNameBit('first');
     }
 
-    /**
-     * Return first name bit.
-     *
-     * @param  string $bit
-     * @return string
-     */
     private function getFullNameBit($bit)
     {
         if (empty($this->full_name_bits)) {
@@ -57,16 +44,10 @@ trait ImplementationUsingFullName
         return empty($this->full_name_bits[$bit]) ? '' : $this->full_name_bits[$bit];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLastName(): ?string
     {
         return $this->getFullNameBit('last');
     }
 
-    /**
-     * {@inheritdoc}
-     */
     abstract public function getFullName(): ?string;
 }

@@ -8,6 +8,7 @@
 
 namespace ActiveCollab\User\Test\Fixtures;
 
+use ActiveCollab\User\OrganizationInterface;
 use ActiveCollab\User\UserInterface;
 use ActiveCollab\User\UserInterface\ImplementationUsingFirstAndLastName as UserInterfaceImplementation;
 use InvalidArgumentException;
@@ -87,6 +88,11 @@ class FirstLastNameUser implements UserInterface
     public function getLastName(): ?string
     {
         return $this->last_name;
+    }
+
+    public function getOrganization(): ?OrganizationInterface
+    {
+        return null;
     }
 
     /**
