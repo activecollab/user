@@ -11,6 +11,8 @@ declare(strict_types=1);
 namespace ActiveCollab\User\UserInterface;
 
 use ActiveCollab\HumanNameParser\Parser as HumanNameParser;
+use Exception;
+use InvalidArgumentException;
 
 trait ImplementationUsingFullName
 {
@@ -23,25 +25,37 @@ trait ImplementationUsingFullName
         return $this->getFullNameBit('first');
     }
 
-    private function getFullNameBit($bit)
+    private function getFullNameBit($first_or_last_name)
     {
+        if (!in_array($first_or_last_name, ['first', 'last'])) {
+            throw new InvalidArgumentException('First or last name expcected.');
+        }
+
         if (empty($this->full_name_bits)) {
             $full_name = $this->getFullName();
 
             if (empty($full_name)) {
-                list($first_name, $last_name) = $this->getFirstAndLastNameFromEmail();
+                list ($first_name, $last_name) = $this->getFirstAndLastNameFromEmail();
 
                 if ($first_name && $last_name) {
                     $this->full_name_bits = (new HumanNameParser("$first_name $last_name"))->getArray();
                 } else {
-                    $this->full_name_bits = ['first' => $first_name];
+                    $this->full_name_bits = [
+                        'first' => $first_name,
+                    ];
                 }
             } else {
-                $this->full_name_bits = (new HumanNameParser($full_name))->getArray();
+                try {
+                    $this->full_name_bits = (new HumanNameParser($full_name))->getArray();
+                } catch (Exception $e) {
+                    $this->full_name_bits = [
+                        'first' => $full_name,
+                    ];
+                }
             }
         }
 
-        return empty($this->full_name_bits[$bit]) ? '' : $this->full_name_bits[$bit];
+        return empty($this->full_name_bits[$first_or_last_name]) ? '' : $this->full_name_bits[$first_or_last_name];
     }
 
     public function getLastName(): ?string

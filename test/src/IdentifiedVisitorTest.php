@@ -96,6 +96,15 @@ class IdentifiedVisitorTest extends TestCase
         $this->assertEquals('', $steve->getLastName());
     }
 
+    public function testOnlyName()
+    {
+        $steve = new IdentifiedVisitor('Steve', 'bill.gates@microsoft.com');
+
+        $this->assertSame('Steve', $steve->getFirstName());
+        $this->assertSame('', $steve->getLastName());
+        $this->assertSame('Steve', $steve->getFullName());
+    }
+
     public function testIs()
     {
         $bill = new IdentifiedVisitor('William Henry "Bill" Gates III', 'bill@microsoft.com');
