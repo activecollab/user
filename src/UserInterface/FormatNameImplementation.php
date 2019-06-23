@@ -6,6 +6,8 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\User\UserInterface;
 
 use ActiveCollab\User\UserInterface;
@@ -16,12 +18,9 @@ use ActiveCollab\User\UserInterface;
 trait FormatNameImplementation
 {
     /**
-     * Return display name of this user.
-     *
-     * @param  string $format
-     * @return string
+     * {@inheritdoc}
      */
-    public function formatName($format = UserInterface::NAME_FULL)
+    public function formatName(string $format = UserInterface::NAME_FULL): string
     {
         $first_name = $this->getFirstName();
         $last_name = $this->getLastName();
@@ -70,23 +69,17 @@ trait FormatNameImplementation
     }
 
     /**
-     * Return email address of a given user.
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    abstract public function getEmail();
+    abstract public function getEmail(): string;
 
     /**
-     * Return first name of this user.
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    abstract public function getFirstName();
+    abstract public function getFirstName(): ?string;
 
     /**
-     * Return first name of this user.
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    abstract public function getLastName();
+    abstract public function getLastName(): ?string;
 }

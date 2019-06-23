@@ -6,18 +6,14 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\User\UserInterface;
 
 use ActiveCollab\User\UserInterface;
 
-/**
- * @package ActiveCollab\User\UserInterface
- */
 trait UserIsImplementation
 {
-    /**
-     * {@inheritdoc}
-     */
     public function is($object)
     {
         if ($object instanceof UserInterface) {
@@ -27,8 +23,5 @@ trait UserIsImplementation
         return false;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     abstract public function getId();
 }

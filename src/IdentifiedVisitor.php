@@ -6,6 +6,8 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\User;
 
 use ActiveCollab\User\UserInterface\ImplementationUsingFullName as UserInterfaceImplementation;
@@ -18,21 +20,10 @@ class IdentifiedVisitor implements UserInterface
 {
     use UserInterfaceImplementation;
 
-    /**
-     * @var string
-     */
     private $full_name;
 
-    /**
-     * @var string
-     */
     private $email;
 
-    /**
-     * @param string     $full_name
-     * @param string     $email
-     * @param bool|false $validate_email_format
-     */
     public function __construct($full_name, $email, $validate_email_format = false)
     {
         if (empty($email)) {
@@ -47,48 +38,21 @@ class IdentifiedVisitor implements UserInterface
         $this->email = $email;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function jsonSerialize()
-    {
-        return [
-            'id' => $this->getId(),
-            'class' => get_class($this),
-            'first_name' => $this->getFirstName(),
-            'last_name' => $this->getLastName(),
-            'full_name' => $this->getFullName(),
-            'email' => $this->getEmail(),
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getId()
     {
         return 0;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getFullName()
+    public function getFullName(): ?string
     {
         return $this->full_name;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function is($object)
     {
         if ($object instanceof UserInterface) {
