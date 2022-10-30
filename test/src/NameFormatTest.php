@@ -6,14 +6,13 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\User\Test;
 
 use ActiveCollab\User\IdentifiedVisitor;
 use ActiveCollab\User\UserInterface;
 
-/**
- * @package ActiveCollab\User\Test
- */
 class NameFormatTest extends TestCase
 {
     public function testNameFormat()

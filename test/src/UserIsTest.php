@@ -6,15 +6,14 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\User\Test;
 
 use ActiveCollab\User\IdentifiedVisitor;
 use ActiveCollab\User\Test\Fixtures\UserWithAccount;
 use ActiveCollab\User\UnidentifiedVisitor;
 
-/**
- * @package ActiveCollab\User\Test
- */
 class UserIsTest extends TestCase
 {
     public function testUnidentifiedUsersCantBeCompared()

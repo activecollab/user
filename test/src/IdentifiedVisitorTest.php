@@ -6,13 +6,13 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\User\Test;
 
 use ActiveCollab\User\IdentifiedVisitor;
+use InvalidArgumentException;
 
-/**
- * @package ActiveCollab\User\Test
- */
 class IdentifiedVisitorTest extends TestCase
 {
     /**
@@ -20,14 +20,15 @@ class IdentifiedVisitorTest extends TestCase
      */
     public function testFullNameIsOptional()
     {
+        $this->expectNotToPerformAssertions();
+
         new IdentifiedVisitor('', 'bill@microsoft.com');
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testEmailIsRequired()
     {
+        $this->expectException(InvalidArgumentException::class);
+
         new IdentifiedVisitor('William Henry "Bill" Gates III', '');
     }
 
@@ -36,14 +37,15 @@ class IdentifiedVisitorTest extends TestCase
      */
     public function testEmailIsNotValidatedByDefault()
     {
+        $this->expectNotToPerformAssertions();
+
         new IdentifiedVisitor('Edwin van der Sar', 'not valid email address');
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testEmailCanBeValidated()
     {
+        $this->expectException(InvalidArgumentException::class);
+
         new IdentifiedVisitor('Edwin van der Sar', 'not valid email address', true);
     }
 
@@ -113,16 +115,13 @@ class IdentifiedVisitorTest extends TestCase
         $this->assertFalse($bill->is(new \stdClass()));
     }
 
-    /**
-     * Test JSON serialize.
-     */
-    public function testJsonSerialize()
+    public function testJsonSerialize(): void
     {
         $bill = new IdentifiedVisitor('William Henry "Bill" Gates III', 'bill@microsoft.com');
 
         $result = json_decode(json_encode($bill), true);
 
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertEquals(0, $result['id']);
         $this->assertEquals(IdentifiedVisitor::class, $result['class']);
         $this->assertEquals('William', $result['first_name']);

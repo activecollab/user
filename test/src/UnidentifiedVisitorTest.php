@@ -6,21 +6,20 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\User\Test;
 
 use ActiveCollab\User\UnidentifiedVisitor;
 
-/**
- * @package ActiveCollab\User\Test
- */
 class UnidentifiedVisitorTest extends TestCase
 {
-    public function testUnidentifiedVistorEmail()
+    public function testUnidentifiedVisitorEmail(): void
     {
-        $this->assertContains('example.com', (new UnidentifiedVisitor())->getEmail());
+        $this->assertStringContainsString('example.com', (new UnidentifiedVisitor())->getEmail());
     }
 
-    public function testUnidentifiedVistorName()
+    public function testUnidentifiedVisitorName(): void
     {
         $this->assertEquals('Unidentified Visitor', (new UnidentifiedVisitor())->getFullName());
     }

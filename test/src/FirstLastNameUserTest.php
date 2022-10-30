@@ -6,14 +6,14 @@
  * (c) A51 doo <info@activecollab.com>. All rights reserved.
  */
 
+declare(strict_types=1);
+
 namespace ActiveCollab\User\Test;
 
 use ActiveCollab\User\Test\Fixtures\FirstLastNameUser;
 use ActiveCollab\User\UserInterface;
+use InvalidArgumentException;
 
-/**
- * @package ActiveCollab\User\Test
- */
 class FirstLastNameUserTest extends TestCase
 {
     /**
@@ -21,14 +21,15 @@ class FirstLastNameUserTest extends TestCase
      */
     public function testFullNameIsOptional()
     {
+        $this->expectNotToPerformAssertions();
+
         new FirstLastNameUser('', '', 'bill@microsoft.com');
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testEmailIsRequired()
     {
+        $this->expectException(InvalidArgumentException::class);
+
         new FirstLastNameUser('William', 'Gates', '');
     }
 
@@ -37,14 +38,15 @@ class FirstLastNameUserTest extends TestCase
      */
     public function testEmailIsNotValidatedByDefault()
     {
+        $this->expectNotToPerformAssertions();
+
         new FirstLastNameUser('Edwin', 'van der Sar', 'not valid email address');
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testEmailCanBeValidated()
     {
+        $this->expectException(InvalidArgumentException::class);
+
         new FirstLastNameUser('Edwin', 'van der Sar', 'not valid email address', true);
     }
 

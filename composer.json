@@ -15,13 +15,13 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
+        "php": ">=8.0",
         "activecollab/humannameparser": "^1.0",
         "activecollab/object": "^1.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.0",
-        "phpunit/phpunit": "^5.0"
+        "phpunit/phpunit": "^9.0"
     },
     "autoload": {
         "psr-4": {

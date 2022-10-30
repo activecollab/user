@@ -14,7 +14,7 @@ use ActiveCollab\User\OrganizationInterface;
 
 trait JsonSerializeImplementation
 {
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return [
             'id' => $this->getId(),

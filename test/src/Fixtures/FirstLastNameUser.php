@@ -95,12 +95,7 @@ class FirstLastNameUser implements UserInterface
         return null;
     }
 
-    /**
-     * Serialize user instance.
-     *
-     * @return array
-     */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return [
             'id' => $this->getId(),
