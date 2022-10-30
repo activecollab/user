@@ -13,9 +13,6 @@ namespace ActiveCollab\User;
 use ActiveCollab\User\UserInterface\ImplementationUsingFullName as UserInterfaceImplementation;
 use InvalidArgumentException;
 
-/**
- * @package ActiveCollab\User
- */
 class IdentifiedVisitor implements UserInterface
 {
     use UserInterfaceImplementation;

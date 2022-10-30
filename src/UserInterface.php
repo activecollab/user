@@ -21,14 +21,9 @@ interface UserInterface extends ObjectInterface, JsonSerializable
     const NAME_INITIALS = 'initials';
 
     public function getEmail(): string;
-
     public function getFullName(): ?string;
-
     public function getFirstName(): ?string;
-
     public function getLastName(): ?string;
-
     public function getOrganization(): ?OrganizationInterface;
-
     public function formatName(string $format = self::NAME_FULL);
 }

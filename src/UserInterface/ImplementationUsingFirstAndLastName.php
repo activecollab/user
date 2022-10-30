@@ -10,9 +10,6 @@ declare(strict_types=1);
 
 namespace ActiveCollab\User\UserInterface;
 
-/**
- * @package ActiveCollab\User\UserInterface
- */
 trait ImplementationUsingFirstAndLastName
 {
     use FormatNameImplementation, JsonSerializeImplementation, OrganizationImplementation, UserIsImplementation;

@@ -12,14 +12,8 @@ namespace ActiveCollab\User\UserInterface;
 
 use ActiveCollab\User\UserInterface;
 
-/**
- * @package ActiveCollab\User\UserInterface
- */
 trait FormatNameImplementation
 {
-    /**
-     * {@inheritdoc}
-     */
     public function formatName(string $format = UserInterface::NAME_FULL): string
     {
         $first_name = $this->getFirstName();
@@ -68,18 +62,7 @@ trait FormatNameImplementation
         return [$first_name, $last_name];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     abstract public function getEmail(): string;
-
-    /**
-     * {@inheritdoc}
-     */
     abstract public function getFirstName(): ?string;
-
-    /**
-     * {@inheritdoc}
-     */
     abstract public function getLastName(): ?string;
 }
