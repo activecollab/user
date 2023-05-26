@@ -50,7 +50,7 @@ class IdentifiedVisitor implements UserInterface
         return $this->email;
     }
 
-    public function is($object)
+    public function is(mixed $object): bool
     {
         if ($object instanceof UserInterface) {
             return empty($object->getId()) && $this->getEmail() === $object->getEmail();

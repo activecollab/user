@@ -14,7 +14,7 @@ use ActiveCollab\User\UserInterface;
 
 trait UserIsImplementation
 {
-    public function is($object)
+    public function is(mixed $object): bool
     {
         if ($object instanceof UserInterface) {
             return $this->getId() && $this->getId() === $object->getId();

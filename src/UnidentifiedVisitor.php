@@ -31,7 +31,7 @@ class UnidentifiedVisitor implements UserInterface
         return 'unknown@example.com';
     }
 
-    public function is($object)
+    public function is(mixed $object): bool
     {
         return false;
     }
