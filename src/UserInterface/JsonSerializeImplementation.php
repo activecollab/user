@@ -14,6 +14,7 @@ use ActiveCollab\User\OrganizationInterface;
 
 trait JsonSerializeImplementation
 {
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return [
